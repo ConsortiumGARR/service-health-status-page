@@ -1,0 +1,5 @@
+.vscode/
+docs/
+env/
+nginx/
+*.pyc
