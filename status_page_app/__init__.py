@@ -21,15 +21,11 @@ def create_app(test_config=None):
     CORS(app, resources={r"/.*": {"origins": "*"}})
     app.config['CORS_HEADERS'] = 'Content-Type'
 
-    app.config['InfluxDB_HOST'] = '*****'
-    app.config['InfluxDB_PORT'] = '***'
-    app.config['InfluxDB_DB'] = '***'
-    app.config['InfluxDB_USERNAME'] = '****'
-    app.config['InfluxDB_PSW'] = '*****'
+
 
     if test_config is None:
         # load the instance config, if it exists, when not testing
-        app.config.from_pyfile('config.py', silent=True)
+        app.config.from_prefixed_env()
     else:
         # load the test config if passed in
         app.config.from_mapping(test_config)
