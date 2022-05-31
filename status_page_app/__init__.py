@@ -38,6 +38,7 @@ def create_app(test_config=None):
         pass
     
     InfluxDB.init_app(app)
+    
     app.register_blueprint(status_page.bp)
 
     return app
