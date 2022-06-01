@@ -37,7 +37,8 @@ class FlaskInfluxDB(object):
                 "You must set the InfluxDB_DB Flask config variable",
             )
         # Initialize the client for InfluxDB.
-        client = InfluxDBClient(host=host, port=db_port, username=db_username, password=db_password)
+        client = InfluxDBClient(host=host, port=db_port,
+                                username=db_username, password=db_password)
         client.switch_database(db_name)
         return client
 
