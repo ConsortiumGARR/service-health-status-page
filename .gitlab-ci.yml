@@ -47,7 +47,7 @@ package:
     - version=latest
     - echo $version
     - docker info
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_TOKEN $CI_REGISTRY
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
     - docker build -t $CI_REGISTRY/$CI_REGISTRY_IMAGE:$version -t $CI_REGISTRY/$CI_REGISTRY_IMAGE:$CI_REGISTRY_IMAGE_TAG .
     - docker push --all-tags $CI_REGISTRY/$CI_REGISTRY_IMAGE
