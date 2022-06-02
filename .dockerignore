@@ -1,5 +1,7 @@
 .vscode/
 docs/
 env/
+vnv/
+k8s/
 nginx/
 *.pyc

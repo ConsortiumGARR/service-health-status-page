@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: neanias-status-page
+  name: neanias-status-page
+  namespace: test-garr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: neanias-status-page
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: neanias-status-page
+    spec:
+      containers:
+      - image: nginx
+        name: nginx-neanias-status-page
+        ports:
+        - containerPort: 80
+        resources: {}
+      - image: gitlab.neanias.eu:5050/monitoring-neanias/status-page:latest
+        name: neanias-status-page
+        envFrom:
+        - secretRef:
+            name: status-page-secret
+        ports:
+        - containerPort: 5000
+status: {}
