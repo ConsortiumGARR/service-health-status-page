@@ -19,6 +19,5 @@ requests==2.27.1
 six==1.16.0
 toml==0.10.2
 urllib3==1.26.9
-uWSGI==2.0.20
 Werkzeug==2.1.2
 zipp==3.8.0
