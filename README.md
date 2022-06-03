@@ -41,9 +41,13 @@ Fill the .env file with the credentials
 
 ### Run the flask application
 
+Enable the virtualenv
+
+    $ source venv/bin/activate
+
 You can run the webapp in debug mode running the provided bash script:
 
-    # bash ./run_dev_env.sh
+    $ bash ./run_dev_env.sh
 
 
 ## Test
