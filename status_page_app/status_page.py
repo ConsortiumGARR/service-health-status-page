@@ -1,10 +1,8 @@
 
 from flask import (
-    Blueprint, flash, g, redirect, request, session, url_for, jsonify, abort, make_response, render_template
+    Blueprint, abort, render_template
 )
-from status_page_app.error_handler import Unauthorized, BadRequest, ServerError, ResourceNotFound
-import json
-from flask_cors import CORS
+from status_page_app.error_handler import Unauthorized, BadRequest, ServerError
 from status_page_app import InfluxDB
 import status_page_app.utils
 

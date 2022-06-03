@@ -1,13 +1,13 @@
 __all__ = ("FlaskInfluxDB")
 
 from influxdb import InfluxDBClient
-from flask import current_app, _app_ctx_stack
+from flask import _app_ctx_stack
 
 
 class FlaskInfluxDB(object):
 
     """Manages InfluxDB connections for your Flask app.
-    FlaskInflux objects provide access to InfluxDB MongoDB server via the :attr:`db`
+    FlaskInflux objects provide access to InfluxDB server via the :attr:`db`
     attribute. You must either pass the :class:`~flask.Flask`
     app to the constructor, or call :meth:`init_app`.
     """
