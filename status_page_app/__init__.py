@@ -1,5 +1,5 @@
 import os
-from flask import Flask, jsonify
+from flask import Flask
 from flask_cors import CORS
 from .error_handler import init_errorhandler
 from .flask_influxdb import FlaskInfluxDB
@@ -7,9 +7,7 @@ from .flask_influxdb import FlaskInfluxDB
 InfluxDB = FlaskInfluxDB()
 
 
-
 def create_app(test_config=None):
-    
     from . import status_page
 
     # create and configure the app
@@ -20,8 +18,6 @@ def create_app(test_config=None):
     )
     CORS(app, resources={r"/.*": {"origins": "*"}})
     app.config['CORS_HEADERS'] = 'Content-Type'
-
-
 
     if test_config is None:
         # load the instance config, if it exists, when not testing
@@ -36,9 +32,9 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
-    
+
     InfluxDB.init_app(app)
-    
+
     app.register_blueprint(status_page.bp)
 
     return app

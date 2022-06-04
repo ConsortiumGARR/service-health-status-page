@@ -1,5 +1,5 @@
 
-def get_services_list_from_resultset(resultset):
+def services_list_from_resultset(resultset):
     res = {}
     for v in resultset[0]['values']:
         service_name = v[1]
@@ -7,7 +7,7 @@ def get_services_list_from_resultset(resultset):
     return res
 
 
-def get_services_status_from_resultset(resultset, service_map):
+def services_status_from_resultset(resultset, service_map):
     overall_status = True
     for r in resultset:
         service_name = r['tags']['service']

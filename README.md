@@ -38,6 +38,7 @@ Create a .env file with InfluxDB credentials:
     cp .env.example .env
 
 Fill the .env file with the credentials
+Note that we use the .env just for development purposes
 
 ### Run the flask application
 

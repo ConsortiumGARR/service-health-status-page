@@ -38,8 +38,9 @@ class FlaskInfluxDB(object):
             )
         # Initialize the client for InfluxDB.
         client = InfluxDBClient(host=host, port=db_port,
-                                username=db_username, password=db_password)
-        client.switch_database(db_name)
+                                username=db_username, password=db_password,
+                                database=db_name)
+
         return client
 
     def teardown(self, exception):
