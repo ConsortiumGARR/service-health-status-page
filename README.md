@@ -6,19 +6,19 @@
 
 
     $ kubectl create secret docker-registry neanias-registry --docker-username=<registry_username> --docker-email=<registry_email> --docker-password=<registry_pull_registry_token>
-    --docker-server=<private_registry_url>
+    --docker-server=<private_registry_url> -n <namespace_name>
 
 2. Create a secret with the InfluxDB credentials:
 
-    $ kubectl apply -f status-page-secret.yaml
+    $ kubectl -n <namespace_name> apply -f status-page-secret.yaml
 
 3. Create a k8s service for the deployment:
 
-    $ kubectl apply -f status-page-service.yaml
+    $ kubectl -n <namespace_name> apply -f status-page-service.yaml
 
 4. Create a k8s deployment for the application ( nginx + flask web app):
 
-    $ kubectl apply -f status-page-deployment.yaml
+    $ kubectl -n <namespace_name> apply -f status-page-deployment.yaml
 
 ## Development
 

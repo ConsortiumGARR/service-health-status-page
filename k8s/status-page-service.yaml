@@ -6,6 +6,7 @@ metadata:
     app: neanias-status-page
   name: neanias-status-page-svc
 spec:
+  type: LoadBalancer
   ports:
     - port: 5000
       name: uwsgi
