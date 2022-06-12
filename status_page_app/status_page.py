@@ -17,11 +17,11 @@ def status():
         tags_query = 'SHOW tag values \
             FROM "metrics" with key = "service" \
             WHERE ("host" = \'statuspage\' AND \
-                "performanceLabel" = \'nagiostatus\')'
+                "performanceLabel" = \'nagiostatus\' AND "service" != \'hostcheck\')'
         svc_query = 'SELECT last("value") \
             FROM "metrics" \
             WHERE ("host" = \'statuspage\' \
-                AND "performanceLabel" = \'nagiostatus\') \
+                AND "performanceLabel" = \'nagiostatus\' ) \
             GROUP BY "service"'
 
         services = InfluxDB.connection.query(tags_query)
