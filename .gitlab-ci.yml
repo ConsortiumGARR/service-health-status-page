@@ -32,6 +32,7 @@ package:
   before_script:
     - version=latest
     - echo $version
+    - echo $CI_COMMIT_REF_NAME
     - docker info
     - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
