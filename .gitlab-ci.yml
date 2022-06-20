@@ -53,7 +53,7 @@ deploy-job:      # This job runs in the deploy stage.
     - (if [ "$CI_COMMIT_REF_NAME" == "development" ]; then SERVER=$SERVER_DEV ; else SERVER=$SERVER_PROD ; fi);
     - (if [ "$CI_COMMIT_REF_NAME" == "development" ]; then CERTIFICATE_AUTHORITY_DATA=$CAD_DEV ; else CERTIFICATE_AUTHORITY_DATA=$CAD_PROD ; fi);
     - (if [ "$CI_COMMIT_REF_NAME" == "development" ]; then USER_TOKEN=$USER_TOKEN_DEV ; else USER_TOKEN=$USER_TOKEN_PROD ; fi);
-    - which kubectl
+    - uname -a
   script:
     - echo "Deploying application..."
     # - kubectl config set-cluster neanias-k8s --server="${SERVER}"
