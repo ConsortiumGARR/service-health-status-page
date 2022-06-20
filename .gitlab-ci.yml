@@ -40,6 +40,20 @@ package:
     - (if [ "$CI_COMMIT_REF_NAME" == "development" ]; then docker build -t $CI_REGISTRY_IMAGE:dev-latest -t $CI_REGISTRY_IMAGE:dev-$CI_COMMIT_SHA . ; else docker build -t $CI_REGISTRY_IMAGE:latest -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA . ; fi);
     - docker push --all-tags $CI_REGISTRY_IMAGE
 
+deploy-test:
+  stage: deploy
+  image: roffe/kubectl
+  script:
+    - kubectl get pods
+    - kubectl get all
+    - kubectl get namespaces
+    - kubectl apply -f scheduler-deployment.yaml
+  environment:
+    name: production
+    kubernetes:
+      namespace: default
+
+
 deploy-job:      # This job runs in the deploy stage.
   stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
   tags: [shared]
