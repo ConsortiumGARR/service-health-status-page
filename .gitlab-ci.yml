@@ -42,6 +42,7 @@ package:
 
 deploy-test:
   stage: deploy
+  tags: [shared]
   image: roffe/kubectl
   script:
     - kubectl get pods
