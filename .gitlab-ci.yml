@@ -48,9 +48,6 @@ deploy-job:      # This job runs in the deploy stage.
     - development
   image:
     name: bitnami/kubectl:latest
-    entrypoint: ['']
-  services:
-    - docker:dind
   before_script:
     - (if [ "$CI_COMMIT_REF_NAME" == "development" ]; then IMAGE_TAG=dev-$CI_COMMIT_SHA ; else IMAGE_TAG=$CI_COMMIT_SHA ; fi);
     - (if [ "$CI_COMMIT_REF_NAME" == "development" ]; then SERVER=$SERVER_DEV ; else SERVER=$SERVER_PROD ; fi);
