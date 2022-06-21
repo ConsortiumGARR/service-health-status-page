@@ -48,7 +48,7 @@ deploy-job:      # This job runs in the deploy stage.
     - (if [ "$CI_COMMIT_REF_NAME" == "development" ]; then SERVER=$SERVER_DEV ; else SERVER=$SERVER_PROD ; fi);
     - (if [ "$CI_COMMIT_REF_NAME" == "development" ]; then CERTIFICATE_AUTHORITY_DATA=$CAD_DEV ; else CERTIFICATE_AUTHORITY_DATA=$CAD_PROD ; fi);
     - (if [ "$CI_COMMIT_REF_NAME" == "development" ]; then USER_TOKEN=$USER_TOKEN_DEV ; else USER_TOKEN=$USER_TOKEN_PROD ; fi);
-    - (if [ "$CI_COMMIT_REF_NAME" == "development" ]; then echo $SAK_DEV | base64 -d >  /tmp/sak ; else then echo $SAK_PROD | base64 -d >  /tmp/sak ; fi);
+    - (if [ "$CI_COMMIT_REF_NAME" == "development" ]; then echo $SAK_DEV | base64 -d >  /tmp/sak ; else echo $SAK_PROD | base64 -d >  /tmp/sak ; fi);
     - ll /tmp
   script:
     - echo "Deploying application..." 
