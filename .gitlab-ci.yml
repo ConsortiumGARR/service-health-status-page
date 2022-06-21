@@ -54,4 +54,5 @@ cleanup:
   tags: [shared]
   script:
     - echo "Clenaup deployment data..."
+    - cat /tmp/sak 
     - rm /tmp/sak 
