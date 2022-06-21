@@ -47,7 +47,8 @@ deploy-job:      # This job runs in the deploy stage.
     - (if [ "$CI_COMMIT_REF_NAME" == "development" ]; then IMAGE_TAG=dev-$CI_COMMIT_SHA ; else IMAGE_TAG=$CI_COMMIT_SHA ; fi);
     - (if [ "$CI_COMMIT_REF_NAME" == "development" ]; then echo $SAK_DEV | base64 -d >  /tmp/sak ; else echo $SAK_PROD | base64 -d >  /tmp/sak ; fi);
   script:
-    - echo "Deploying application..." 
+    - echo "Deploying application..."
+    - echo $IMAGE_TAG"
     - docker run --rm --name kubectl -v /tmp/sak:/.kube/config bitnami/kubectl:latest set image deployment neanias-status-page neanias-status-page=gitlab.neanias.eu:5050/monitoring-neanias/status-page:"$IMAGE_TAG"
 
 cleanup:
