@@ -50,6 +50,7 @@ deploy-job:      # This job runs in the deploy stage.
     - (if [ "$CI_COMMIT_REF_NAME" == "development" ]; then USER_TOKEN=$USER_TOKEN_DEV ; else USER_TOKEN=$USER_TOKEN_PROD ; fi);
     - uname -a
     - docker images
+    - docker ps -a
   script:
     - echo "Deploying application..."
     - uname -a
