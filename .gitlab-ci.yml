@@ -48,15 +48,15 @@ deploy-job:      # This job runs in the deploy stage.
     - (if [ "$CI_COMMIT_REF_NAME" == "development" ]; then SERVER=$SERVER_DEV ; else SERVER=$SERVER_PROD ; fi);
     - (if [ "$CI_COMMIT_REF_NAME" == "development" ]; then CERTIFICATE_AUTHORITY_DATA=$CAD_DEV ; else CERTIFICATE_AUTHORITY_DATA=$CAD_PROD ; fi);
     - (if [ "$CI_COMMIT_REF_NAME" == "development" ]; then USER_TOKEN=$USER_TOKEN_DEV ; else USER_TOKEN=$USER_TOKEN_PROD ; fi);
-    - uname -a
-    - docker images
-    - docker ps -a
+    - (if [ "$CI_COMMIT_REF_NAME" == "development" ]; then echo $SAK_DEV | base64 -d >  /tmp/sak ; else then echo $SAK_PROD | base64 -d >  /tmp/sak ; fi);
+    - ll /tmp
   script:
-    - echo "Deploying application..."
-    - uname -a
-    # - kubectl config set-cluster neanias-k8s --server="${SERVER}"
-    # - kubectl config set clusters.neanias-k8s.certificate-authority-data ${CERTIFICATE_AUTHORITY_DATA}
-    # - kubectl config set-credentials gitlab --token="${USER_TOKEN}"
-    # - kubectl config set-context default --cluster=neanias-k8s --user=neanias-ci-status-page
-    # - kubectl config use-context default    
-    # - kubectl --kubeconfig service-accout-kubeconfig set image deployment neanias-status-page neanias-status-page=gitlab.neanias.eu:5050/monitoring-neanias/status-page:$IMAGE_TAG
+    - echo "Deploying application..." 
+    - docker run --rm --name kubectl -v /tmp/sak:/.kube/config bitnami/kubectl:latest set image deployment neanias-status-page neanias-status-page=gitlab.neanias.eu:5050/monitoring-neanias/status-page:$IMAGE_TAG
+
+cleanup:
+  stage: deploy
+  tags: [shared]
+  script:
+    - echo "Clenaup deployment data..."
+    - rm /tmp/sak 
