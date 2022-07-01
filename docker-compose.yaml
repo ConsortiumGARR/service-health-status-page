@@ -1,6 +1,7 @@
 version: '3'
 services:
   nginx:
+    restart: always
     image: nginx:1.23.0-alpine
     ports:
       - "80:80"
@@ -17,12 +18,14 @@ services:
       - neanias-status-page
   certbot:
     image: certbot/certbot
-    restart: unless-stopped
     volumes:
       - ./docker/certbot/conf:/etc/letsencrypt
       - ./docker/certbot/www:/var/www/certbot
   neanias-status-page:
+    restart: always
     image: gitlab.neanias.eu:5050/monitoring-neanias/status-page:latest
+    env_file:
+      - .env
     networks:
       neanias-status-page-net:
         aliases:
