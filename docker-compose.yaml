@@ -1,0 +1,32 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:1.23.0-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/nginx:/etc/nginx/conf.d/:ro
+      - ./docker/certbot/conf:/etc/letsencrypt/:ro
+      - ./docker/certbot/www:/var/www/certbot/:ro
+    networks:
+      neanias-status-page-net:
+        aliases:
+          - neanias-status-page-nginx
+    depends_on:
+      - neanias-status-page
+  certbot:
+    image: certbot/certbot
+    restart: unless-stopped
+    volumes:
+      - ./docker/certbot/conf:/etc/letsencrypt
+      - ./docker/certbot/www:/var/www/certbot
+  neanias-status-page:
+    image: gitlab.neanias.eu:5050/monitoring-neanias/status-page:latest
+    networks:
+      neanias-status-page-net:
+        aliases:
+          - neanias-status-page
+
+networks:
+  neanias-status-page-net:
