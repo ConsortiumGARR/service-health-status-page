@@ -52,6 +52,9 @@ deploy-job:      # This job runs in the deploy stage.
 cleanup:
   stage: deploy
   tags: [shared]
+  only:
+    #- master
+    - development
   script:
     - echo "Clenaup deployment data..."
     - rm /tmp/sak 
