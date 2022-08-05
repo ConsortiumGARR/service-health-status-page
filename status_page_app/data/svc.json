@@ -1,0 +1,118 @@
+{
+    "ADAM platform": {
+        "url": "https://catalogue.neanias.eu/service/meeo.adam_platform",
+        "maintenance": "Maintenance from 6/09/2022 to 10/09/2022"
+    },
+    "ADAM-Space service": {
+        "url": "https://catalogue.neanias.eu/service/meeo.adam_space",
+        "maintenance": ""
+    },
+    "AI Gateway service": {
+        "url": "https://catalogue.neanias.eu/service/sztaki.ai-gateway",
+        "maintenance": ""
+    },
+    "ATMO-4CAST service": {
+        "url": "https://catalogue.neanias.eu/service/ubiwhere.atmo-4cast",
+        "maintenance": ""
+    },
+    "ATMO-FLUD service": {
+        "url": "https://catalogue.neanias.eu/service/athena.atmo-flud",
+        "maintenance": ""
+    },
+    "ATMO-SEISM service": {
+        "url": "https://catalogue.neanias.eu/service/unimib.atmo-seism",
+        "maintenance": ""
+    },
+    "ATMO-STRESS service": {
+        "url": "https://catalogue.neanias.eu/service/unimib.atmo-stress",
+        "maintenance": ""
+    },
+    "Accounting service": {
+        "url": "https://catalogue.neanias.eu/service/cite.accounting",
+        "maintenance": ""
+    },
+    "Catalogue Portal": {
+        "url": "https://catalogue.neanias.eu/service/athena.catalogue_portal",
+        "maintenance": ""
+    },
+    "Catalogue service API": {
+        "url": "https://catalogue.neanias.eu/service/athena.catalogue_service",
+        "maintenance": ""
+    },
+    "Data Validation service": {
+        "url": "https://catalogue.neanias.eu/service/cite.data_validation_service_dvs",
+        "maintenance": ""
+    },
+    "Data sharing service": {
+        "url": "https://catalogue.neanias.eu/service/nkua.dashas",
+        "maintenance": ""
+    },
+    "Log Aggregation service": {
+        "url": "https://catalogue.neanias.eu/service/cite.log_aggregation",
+        "maintenance": ""
+    },
+    "Notification service": {
+        "url": "https://catalogue.neanias.eu/service/cite.notification",
+        "maintenance": ""
+    },
+    "SPACE-ML CAESAR service": {
+        "url": "https://catalogue.neanias.eu/service/inaf.space-ml_caesar_service",
+        "maintenance": ""
+    },
+    "SPACE-ML CAESAR service API": {
+        "url": "https://catalogue.neanias.eu/service/inaf.space-ml_caesar_service",
+        "maintenance": ""
+    },
+    "SPACE-VIS ViaLactea service": {
+        "url": "https://catalogue.neanias.eu/service/inaf.space-vis_vialactea_service",
+        "maintenance": ""
+    },
+    "SSO service": {
+        "url": "",
+        "maintenance": ""
+    },
+    "Toolkit For Cross Realities DCS service": {
+        "url": "https://catalogue.neanias.eu/service/altec.c43_toolkit_for_cross_realities_xr_dcs",
+        "maintenance": ""
+    },
+    "Toolkit For Cross Realities PMS service": {
+        "url": "https://catalogue.neanias.eu/service/altec.toolkit_for_cross_realities_xr_pms",
+        "maintenance": ""
+    },
+    "Trained AI models service": {
+        "url": "https://catalogue.neanias.eu/service/altec.neanias_serving_trained_ml_models",
+        "maintenance": ""
+    },
+    "UW-BAT service": {
+        "url": "https://catalogue.neanias.eu/service/teledyne.uw-bat",
+        "maintenance": ""
+    },
+    "UW-MAP service": {
+        "url": "https://catalogue.neanias.eu/service/athena.uw-map",
+        "maintenance": ""
+    },
+    "UW-MAP service Privacy": {
+        "url": "",
+        "maintenance": ""
+    },
+    "UW-MAP service TOS": {
+        "url": "",
+        "maintenance": ""
+    },
+    "UW-MOS service": {
+        "url": "https://catalogue.neanias.eu/service/coronis_computing_sl.uw-mos",
+        "maintenance": ""
+    },
+    "VD-MAPS service": {
+        "url": "https://catalogue.neanias.eu/service/coronis_computing_sl.vd-maps",
+        "maintenance": ""
+    },
+    "Visualization Gateway service": {
+        "url": "https://catalogue.neanias.eu/service/inaf.visualization_gateway_vg",
+        "maintenance": ""
+    },
+    "Zenodo Bridge": {
+        "url": "https://catalogue.neanias.eu/service/cite.zenodo_bridge",
+        "maintenance": ""
+    }
+}

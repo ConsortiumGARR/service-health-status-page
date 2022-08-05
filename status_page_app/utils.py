@@ -1,12 +1,14 @@
-from datetime import datetime,timezone
+from datetime import datetime, timezone
+import json, os
 
-
-def services_list_from_resultset(resultset):
-    res = {}
-    for v in resultset[0]['values']:
-        service_name = v[1]
-        res[service_name] = {'status': None}
-    return res
+def init_services_list(base_list):
+    SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+    json_url = os.path.join(SITE_ROOT, "data", "svc.json")
+    base_list = json.load(open(json_url))
+   
+    for s in base_list:
+        base_list[s]['status'] = None
+    return base_list
 
 
 def services_status_from_resultset(resultset, service_map):
@@ -20,10 +22,10 @@ def services_status_from_resultset(resultset, service_map):
             service_map[service_name]['date'] = r['values'][0][0]
             try:
                 dt_obj = datetime.strptime(
-                service_map[service_name]['date'], "%Y-%m-%dT%H:%M:%S%z")
+                    service_map[service_name]['date'], "%Y-%m-%dT%H:%M:%S%z")
                 delta_update = datetime.now(timezone.utc) - dt_obj
-                if delta_update.days >= 1: #if more than 24h
-                     service_map[service_name]['status'] = 3
+                if delta_update.days >= 1:  # if more than 24h
+                    service_map[service_name]['status'] = 3
             except Exception as e:
                 print(e)
             if service_map[service_name]['status'] != 0:

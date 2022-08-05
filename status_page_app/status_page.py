@@ -14,24 +14,18 @@ bp = Blueprint('status', __name__, url_prefix='/')
 @bp.route('/', methods=(['GET']))
 def status():
     try:
-        tags_query = 'SHOW tag values \
-            FROM "metrics" with key = "service" \
-            WHERE ("host" = \'statuspage\' AND \
-                "performanceLabel" = \'nagiostatus\' AND "service" != \'hostcheck\')'
+       
         svc_query = 'SELECT last("value") \
             FROM "metrics" \
             WHERE ("host" = \'statuspage\' \
                 AND "performanceLabel" = \'nagiostatus\' ) \
             GROUP BY "service"'
 
-        services = InfluxDB.connection.query(tags_query)
-        svc_status = status_page_app.utils.\
-            services_list_from_resultset(services.raw['series'])
+        svc_status = status_page_app.utils.init_services_list({})
 
         results = InfluxDB.connection.query(svc_query)
         svc_status, oa_status = status_page_app.utils.\
             services_status_from_resultset(results.raw['series'], svc_status)
-
         return render_template('body.html',
                                services_status=svc_status,
                                overall_status=oa_status)
