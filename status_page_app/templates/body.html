@@ -53,8 +53,14 @@
 
                             <div class="list-group-item">
                                 <h4 class="list-group-item-heading">
-                                    {{k}}
-                                    <!-- <small class="pull-right">{{i.date}} </small> -->
+                                    <a href="{{i.url}}" data-toggle="tooltip" data-placement="bottom"
+                                        title="Service website">
+                                        {{k}}
+                                        <!--<i class="fa fa-question-circle"></i>-->
+                                    </a>
+                                    {% if i.maintenance %}
+                                     <small class="pull-right">{{i.maintenance}} </small> 
+                                    {% endif %}
                                 </h4>
                                 <p class="list-group-item-text">
                                     {% if i.status == 2 %}
@@ -85,9 +91,15 @@
 
                             <div class="list-group-item">
                                 <h4 class="list-group-item-heading">
-                                    {{k}}
 
-                                    <!-- <small class="pull-right">{{i.date}} </small> -->
+                                    <a href="{{i.url}}" data-toggle="tooltip" data-placement="bottom"
+                                        title="Service website">
+                                        {{k}}
+                                        <!--<i class="fa fa-question-circle"></i>-->
+                                    </a>
+                                    {% if i.maintenance %}
+                                     <small class="pull-right">{{i.maintenance}} </small> 
+                                    {% endif %}
                                 </h4>
                                 <p class="list-group-item-text">
                                     {% if i.status == 2 %}
@@ -115,7 +127,7 @@
     </div>
 
 
-    <div class="container" >
+    <div class="container">
         <div class="row text-center text-xs-center text-sm-left text-md-left">
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <ul>
@@ -140,8 +152,8 @@
                         alt="Disclaimer" src="https://project.catris.eu/templates/catris/img/euflag.png" height="25px">
                 </div>
                 <p><a href="https://www.neanias.eu"> NEANIAS</a> is a Research and Innovation Action funded by
-                        European Union under Horizon 2020 research and innovation programme via grant agreement
-                        No.863448.</p>
+                    European Union under Horizon 2020 research and innovation programme via grant agreement
+                    No.863448.</p>
             </div>
             <hr>
         </div>
